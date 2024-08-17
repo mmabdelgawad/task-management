@@ -13,6 +13,11 @@ final class AuthException extends Exception
         return new self('Invalid credentials.', Response::HTTP_UNAUTHORIZED);
     }
 
+    public static function unauthorized(): self
+    {
+        return new self('Unauthorized.', Response::HTTP_FORBIDDEN);
+    }
+
     public function render(): JsonResponse
     {
         return response()->json(['message' => $this->message], $this->code);
