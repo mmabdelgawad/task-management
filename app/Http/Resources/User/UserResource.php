@@ -7,7 +7,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class UserResource extends JsonResource
 {
-    private string $token;
+    private ?string $token = null;
 
     /**
      * Transform the resource into an array.
