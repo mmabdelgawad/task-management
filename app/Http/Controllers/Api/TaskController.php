@@ -53,7 +53,7 @@ class TaskController extends Controller
     public function destroy(string $id, TaskRepositoryInterface $taskRepository)
     {
         if (auth()->user()->cannot('delete task')) {
-            throw AuthException::invalidCredentials();
+            throw AuthException::unauthorized();
         }
 
         $taskRepository->delete($id);
