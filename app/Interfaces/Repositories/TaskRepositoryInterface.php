@@ -2,13 +2,15 @@
 
 namespace App\Interfaces\Repositories;
 
-/**
- * @method all()
- * @method create(array $data)
- * @method find(string $id)
- * @method update(array $data, string $id)
- * @method delete(string $id)
- * */
 interface TaskRepositoryInterface
 {
+    public function all();
+
+    public function create(array $data);
+
+    public function find(string $id);
+
+    public function update(array $data, string $id);
+
+    public function delete(string $id);
 }

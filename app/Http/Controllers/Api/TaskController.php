@@ -16,6 +16,7 @@ class TaskController extends Controller
      */
     public function index(TaskRepositoryInterface $taskRepository)
     {
+        // TODO: return user's tasks only
         return TaskResource::collection($taskRepository->all());
     }
 
@@ -34,6 +35,7 @@ class TaskController extends Controller
      */
     public function show(string $id, TaskRepositoryInterface $taskRepository)
     {
+        // TODO: view my own tasks only
         return TaskResource::make($taskRepository->find($id));
     }
 
@@ -52,6 +54,7 @@ class TaskController extends Controller
      */
     public function destroy(string $id, TaskRepositoryInterface $taskRepository)
     {
+        // TODO: move to middleware instead of inline check
         if (auth()->user()->cannot('delete task')) {
             throw AuthException::unauthorized();
         }
